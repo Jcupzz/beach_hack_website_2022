@@ -81,10 +81,12 @@ packages:
   flame_tiled:
     dependency: "direct main"
     description:
-      name: flame_tiled
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0-releasecandidate.15"
+      path: "."
+      ref: dev
+      resolved-ref: c47fc01b1865aa6e729e84443e2bbc06eaa2d4f9
+      url: "git://github.com/Akida31/flame_tiled.git"
+    source: git
+    version: "0.2.0-rc1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -180,10 +182,12 @@ packages:
   tiled:
     dependency: transitive
     description:
-      name: tiled
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.7.2"
+      path: "."
+      ref: tileByGid-fix
+      resolved-ref: e538ac594df57221a45d3c9219ce5fb2b439deb6
+      url: "https://github.com/supagu/tiled.dart.git"
+    source: git
+    version: "0.7.1"
   typed_data:
     dependency: transitive
     description:

@@ -3,20 +3,22 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "239867ad17fcffe6e0bd0e7f9c445f3c",
+  "assets/AssetManifest.json": "bebeff1fc5cd6aa4434822b08784c5b3",
 "assets/assets/images/fishTilesheet@2.png": "b05f67bab96d2f498c01a79fc1d926f4",
 "assets/assets/images/idle_guy_1.png": "373e94c3ec8225b0d727e2d75cb7ef74",
 "assets/assets/tiles/beach.tmx": "ecb5bb6ec4c322320a475447eb4ddc71",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
-"assets/NOTICES": "0d67b34f207a206a667249028caf3e57",
+"assets/NOTICES": "b0055617b5b003e830dfef43c234cfd0",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
+"assets/packages/flame_tiled/assets/images/map-level1.png": "fe462d43b78a982621b050109e2c774f",
+"assets/packages/flame_tiled/assets/tiles/map.tmx": "66ab11762a37f12715af11393aa86f4c",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"index.html": "e67c1257c13dffd9d48d82932736471d",
-"/": "e67c1257c13dffd9d48d82932736471d",
-"main.dart.js": "eda8ade94c1964bd5e7bbed4a19ddda8",
+"index.html": "8c725338b1d4d029873a8369191d6de0",
+"/": "8c725338b1d4d029873a8369191d6de0",
+"main.dart.js": "25bdd0da8bbebcca058fd1d9ccb14a61",
 "manifest.json": "f3eead5b72274618e9115d2fdd9243b1",
 "version.json": "1a51d5cb96c431c4147c15da695378ee"
 };
