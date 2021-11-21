@@ -1,36 +1,87 @@
-name: Flutter Web
+# name: Flutter Web
+# on:
+#   push:
+#     branches:
+#       - main
+# jobs:
+#   build:
+#     name: Build Web
+#     env:
+#       my_secret: ${{secrets.HOSTING_SECRET}}
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v1
+#       - uses: subosito/flutter-action@v1
+#         with:
+#           channel: 'dev'
+#       - run: flutter config --enable-web
+#       - run: flutter pub get
+#       - run: flutter build web --release
+#       - run: |
+#           cd build/web
+#           git config --global init.defaultBranch main
+#           git init
+#           # in line 24 and 25 type your email id and username respectively
+#           #git config --global user.email email_ids
+#           #git config --global user.name username 
+#           git config --global user.email jcupzz255@gmail.com
+#           git config --global user.name Jcupzz
+#           git status
+#           # in line 30 after @ add your repo link  
+#           # git remote add origin https://${{secrets.hosting_secret}}@repo_link
+#           git remote add origin https://${{secrets.HOSTING_SECRET}}@github.com/Jcupzz/beach_hack_website_2022.git
+#           git checkout -b gh-pages
+#           git add --all
+#           git commit -m "update"
+#           git push origin gh-pages -f
+
+name: Flutter Web CI
+
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
   build:
-    name: Build Web
-    env:
-      my_secret: ${{secrets.hosting_secret}}
     runs-on: ubuntu-latest
+    env:
+      my_secret: ${{secrets.HOSTING_SECRET}}
     steps:
-      - uses: actions/checkout@v1
-      - uses: subosito/flutter-action@v1
-        with:
-          channel: 'dev'
-      - run: flutter config --enable-web
-      - run: flutter pub get
-      - run: flutter build web --release
-      - run: |
-          cd build/web
-          git config --global init.defaultBranch main
-          git init
-          # in line 24 and 25 type your email id and username respectively
-          #git config --global user.email email_ids
-          #git config --global user.name username 
-          git config --global user.email ${{secrets.email}}
-          git config --global user.name Jcupzz
-          git status
-          # in line 30 after @ add your repo link  
-          # git remote add origin https://${{secrets.hosting_secret}}@repo_link
-          git remote add origin https://${{secrets.hosting_secret}}@github.com/Jcupzz/beach_hack_website_2022
-          git checkout -b gh-pages
-          git add --all
-          git commit -m "update"
-          git push origin gh-pages -f
+    - uses: actions/checkout@v1
+    - uses: subosito/flutter-action@v1
+      with:
+        channel: beta
+    - run: flutter config --enable-web
+    - run: flutter pub get
+#     - run: flutter test
+    - run: flutter build web
+    - name: Archive Production Artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: web-build
+        path: build/web
+    - name: Download Artifact
+      uses: actions/download-artifact@master
+      with:
+        name: web-build 
+    - name: Display structure of build files
+      run: ls -R
+      working-directory: ./web
+    - name: Deploy to GH Pages
+      run: |
+        cd build/web
+        git init
+        # type configurations: your user.email and user.name followed lines 
+        # git config --global user.email your_email 
+        # git config --global user.name your_name 
+        git config --global user.email jcupzz255@gmail.com
+        git config --global user.name Jcupzz
+        git status
+        # change this remote url for examle your remote url is https://github.com/onatcipli/flutter_web.git then the following:
+        git remote add origin https://${{secrets.HOSTING_SECRET}}@github.com/Jcupzz/beach_hack_website_2022.git
+        git checkout -b gh-pages
+        git add --all
+        git commit -m "update"
+        git push origin gh-pages -f
