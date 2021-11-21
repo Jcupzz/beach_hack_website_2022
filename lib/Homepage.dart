@@ -1,6 +1,6 @@
 import 'package:beach_hack_website_2022/Player.dart';
 import 'package:flame/components.dart';
-import 'package:flame/flame.dart';
+// import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flame/particles.dart';
 import 'package:flame/sprite.dart';
@@ -44,8 +44,8 @@ class Homepage extends FlameGame {
     print(size.toString());
     print(WidgetsBinding.instance?.window.physicalSize.toString());
 
-    // final tiledMap = await TiledComponent.load('beach.tmx', Vector2.all(16));
-    tiledMap = TiledComponent('beach.tmx', Size(16, 16));
+    final tiledMap = await TiledComponent.load('beach.tmx', Vector2.all(16));
+    // tiledMap = TiledComponent('beach.tmx', Size(16, 16));
 
     add(tiledMap);
 
