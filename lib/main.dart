@@ -1,4 +1,5 @@
 import 'package:beach_hack_website_2022/Homepage.dart';
+import 'package:beach_hack_website_2022/blah.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
@@ -11,13 +12,13 @@ class MyApp extends StatelessWidget {
   final game = Homepage();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: GameWidget(
-        game: game,
-        loadingBuilder: (context) {
-          return Center(child: CircularProgressIndicator());
-        },
-      ),
-    );
+    return MaterialApp(home: Blah()
+        // GameWidget(
+        //   game: game,
+        //   loadingBuilder: (context) {
+        //     return Center(child: CircularProgressIndicator());
+        //   },
+        // ),
+        );
   }
 }
