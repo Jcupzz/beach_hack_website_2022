@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:beach_hack_website_2022/Player.dart';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
