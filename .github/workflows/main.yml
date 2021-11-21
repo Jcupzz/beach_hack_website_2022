@@ -7,7 +7,7 @@ jobs:
   build:
     name: Build Web
     env:
-      my_secret: ${{secrets.hosting_secret}}
+      my_secret: ${{secrets.HOSTING_SECRET}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
