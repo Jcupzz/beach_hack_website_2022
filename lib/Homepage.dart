@@ -1,14 +1,12 @@
 import 'package:beach_hack_website_2022/Player.dart';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
-// import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flame/particles.dart';
 import 'package:flame/sprite.dart';
 import 'package:flame/widgets.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:flutter/cupertino.dart';
-import 'dart:ui';
 
 // enum PlayerState {
 //   idleLeft,
