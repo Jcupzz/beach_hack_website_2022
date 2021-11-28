@@ -13,5 +13,5 @@ jobs:
       - uses: subosito/flutter-action@v1
       - uses: bluefireteam/flutter-gh-pages@v7
         with:
-          baseHref: /NAME_OF_YOUR_REPOSITORY/
+          baseHref: /beach_hack_website_2022/
           webRenderer: canvaskit
