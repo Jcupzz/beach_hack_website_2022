@@ -7,7 +7,7 @@ const RESOURCES = {
 "assets/assets/images/fishTilesheet@2.png": "b05f67bab96d2f498c01a79fc1d926f4",
 "assets/assets/images/idle_guy_1.png": "373e94c3ec8225b0d727e2d75cb7ef74",
 "assets/assets/images/marioSpriteSheet.png": "0adb66be2fa2f748b33c4f949f2d70ad",
-"assets/assets/tiles/beach.tmx": "552ba31afaaf42bb4bf06b89ed938042",
+"assets/assets/tiles/beach.tmx": "be630d060ae1532a4d4e11e71ad9b086",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
 "assets/NOTICES": "0d67b34f207a206a667249028caf3e57",
@@ -15,9 +15,9 @@ const RESOURCES = {
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"index.html": "abb9b91f529525e654e0845bf20110a5",
-"/": "abb9b91f529525e654e0845bf20110a5",
-"main.dart.js": "ca05e61a1f1bccc975a9a2c387396161",
+"index.html": "071edd969aff13393590d842feaf7836",
+"/": "071edd969aff13393590d842feaf7836",
+"main.dart.js": "5667a0319dc66b9e433f477cfba7bf0e",
 "manifest.json": "f3eead5b72274618e9115d2fdd9243b1",
 "version.json": "1a51d5cb96c431c4147c15da695378ee"
 };

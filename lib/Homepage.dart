@@ -1,9 +1,11 @@
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
+import 'package:flame/input.dart';
 import 'package:flame/sprite.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 
 // enum PlayerState {
 //   idleLeft,
@@ -20,7 +22,7 @@ enum MarioState {
   jumpRight,
 }
 
-class Homepage extends FlameGame {
+class Homepage extends FlameGame with KeyboardEvents {
   late TiledComponent tiledMap;
   late SpriteAnimationComponent animationComponent;
   late SpriteAnimationGroupComponent<MarioState> marioAnimationGroupComponent;
@@ -28,6 +30,8 @@ class Homepage extends FlameGame {
   late double marioEndPosX;
   late double marioEndPosY;
   late MarioState currentStateOfMario;
+  bool isRight = false;
+  bool isLeft = false;
 
   @override
   void onGameResize(Vector2 canvasSize) {
@@ -69,7 +73,8 @@ class Homepage extends FlameGame {
     marioEndPosY = startAndEnd.objects[1].y;
 
     camera.worldBounds = Rect.fromLTWH(0, 0, 3040, 1072);
-    camera.snapTo(Vector2(marioStartPosX, marioStartPosY - marioStartPosY / 2));
+    // camera.snapTo(Vector2(marioStartPosX / 2, marioStartPosY / 2));
+    print(marioStartPosX.toString() + " ## " + marioStartPosY.toString());
 
     //Mario
     final marioSpriteImage = await Flame.images.load('marioSpriteSheet.png');
@@ -134,7 +139,6 @@ class Homepage extends FlameGame {
 
     // // add(playerGroup);
     // print("Size of world is: " + size.x.toString());
-    // camera.viewport = FixedResolutionViewport((Vector2(1920, 1072)));
 
     // camera.followComponent(playerGroup);
 
@@ -144,8 +148,45 @@ class Homepage extends FlameGame {
   }
 
   @override
+  KeyEventResult onKeyEvent(
+    RawKeyEvent event,
+    Set<LogicalKeyboardKey> keysPressed,
+  ) {
+    final isKeyDown = event is RawKeyDownEvent;
+
+    isRight = keysPressed.contains(LogicalKeyboardKey.arrowRight);
+    isLeft = keysPressed.contains(LogicalKeyboardKey.arrowLeft);
+    if (isKeyDown) {
+      return KeyEventResult.handled;
+    }
+    return KeyEventResult.ignored;
+  }
+
+  @override
   void update(double dt) {
     // TODO: implement update
     super.update(dt);
+
+    if (isRight) {
+      marioAnimationGroupComponent.x =
+          marioAnimationGroupComponent.x + 100 * dt;
+      currentStateOfMario = MarioState.runningRight;
+      marioAnimationGroupComponent.current = MarioState.runningRight;
+    } else {
+      isRight = false;
+    }
+
+    if (isLeft) {
+      marioAnimationGroupComponent.x =
+          marioAnimationGroupComponent.x - 100 * dt;
+      currentStateOfMario = MarioState.runningLeft;
+      marioAnimationGroupComponent.current = MarioState.runningLeft;
+    } else {
+      isLeft = false;
+    }
+    camera.translateBy(Vector2(10, 0));
+
+    camera.followVector2(Vector2(
+        marioAnimationGroupComponent.x, marioAnimationGroupComponent.y));
   }
 }
