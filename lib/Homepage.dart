@@ -1,10 +1,7 @@
-import 'package:beach_hack_website_2022/Player.dart';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
-import 'package:flame/particles.dart';
 import 'package:flame/sprite.dart';
-import 'package:flame/widgets.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -59,14 +56,16 @@ class Homepage extends FlameGame {
     final tiledMap = await TiledComponent.load('beach.tmx', Vector2.all(16));
 
     add(tiledMap);
-
     currentStateOfMario = MarioState.idleRight;
+
     //Start and end position of mario
     final startAndEnd = tiledMap.tileMap.getObjectGroupFromLayer("events");
     double marioStartPosX = startAndEnd.objects[0].x;
     double marioStartPosY = startAndEnd.objects[0].y;
     marioEndPosX = startAndEnd.objects[1].x;
     marioEndPosY = startAndEnd.objects[1].y;
+
+    camera.snap();
 
     //Mario
     final marioSpriteImage = await Flame.images.load('marioSpriteSheet.png');
@@ -104,9 +103,11 @@ class Homepage extends FlameGame {
         MarioState.jumpLeft: jumpLeftSpriteAnimation
       },
       current: currentStateOfMario,
-      position: Vector2(marioStartPosX, -marioStartPosY),
+      position: Vector2(marioStartPosX, marioStartPosY),
       size: Vector2(27, 34.25),
     );
+
+    add(marioAnimationGroupComponent);
 
     // final IdleGuyImage = await Flame.images.load('idle_guy_1.png');
 
