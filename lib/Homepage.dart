@@ -52,6 +52,9 @@ class Homepage extends FlameGame {
     // TODO: implement onLoad
     print(size.toString());
     print(WidgetsBinding.instance?.window.physicalSize.toString());
+    print(camera.viewport.effectiveSize.x.toString() +
+        " " +
+        camera.viewport.effectiveSize.y.toString());
 
     final tiledMap = await TiledComponent.load('beach.tmx', Vector2.all(16));
 
@@ -65,7 +68,9 @@ class Homepage extends FlameGame {
     marioEndPosX = startAndEnd.objects[1].x;
     marioEndPosY = startAndEnd.objects[1].y;
 
-    camera.snap();
+    camera.snapTo(Vector2(marioStartPosX / 2, marioStartPosY / 2));
+
+    camera.worldBounds = Rect.fromLTWH(0, 0, 3040, 1072);
 
     //Mario
     final marioSpriteImage = await Flame.images.load('marioSpriteSheet.png');
