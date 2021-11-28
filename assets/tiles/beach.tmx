@@ -24,8 +24,8 @@
   </data>
  </layer>
  <objectgroup id="9" name="events">
-  <object id="4" x="417" y="639"/>
-  <object id="5" x="2785" y="671"/>
+  <object id="4" x="400" y="536"/>
+  <object id="5" x="2785" y="536"/>
  </objectgroup>
  <layer id="5" name="bottomsand" width="190" height="67">
   <data encoding="base64" compression="zlib">

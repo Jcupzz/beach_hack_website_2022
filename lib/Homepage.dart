@@ -68,9 +68,8 @@ class Homepage extends FlameGame {
     marioEndPosX = startAndEnd.objects[1].x;
     marioEndPosY = startAndEnd.objects[1].y;
 
-    camera.snapTo(Vector2(marioStartPosX / 2, marioStartPosY / 2));
-
     camera.worldBounds = Rect.fromLTWH(0, 0, 3040, 1072);
+    camera.snapTo(Vector2(marioStartPosX, marioStartPosY - marioStartPosY / 2));
 
     //Mario
     final marioSpriteImage = await Flame.images.load('marioSpriteSheet.png');
