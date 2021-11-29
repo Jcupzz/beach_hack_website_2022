@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="36" height="14" tilewidth="64" tileheight="64" infinite="0" nextlayerid="10" nextobjectid="5">
+ <tileset firstgid="1" name="ex" tilewidth="66" tileheight="66" tilecount="98" columns="7">
+  <image source="ex.png" width="462" height="924"/>
+ </tileset>
+ <layer id="9" name="Tile Layer 4" width="36" height="14">
+  <data encoding="base64" compression="zlib">
+   eJyLYmBgiBrFo3gUj+JRPIpH8bDCAEA1sTE=
+  </data>
+ </layer>
+ <layer id="2" name="fish" width="36" height="14">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFQxX4D7QDhijwHGgHDEIwGiajYBQMPwAAbRwA4g==
+  </data>
+ </layer>
+ <layer id="4" name="top_sand" width="36" height="14" opacity="0.9">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMBiBJBBLUZFmpgCzADHjIMOjAD8AAMPQAlQ=
+  </data>
+ </layer>
+ <objectgroup id="5" name="events">
+  <object id="1" x="234" y="396"/>
+  <object id="2" x="2083" y="396"/>
+ </objectgroup>
+ <layer id="3" name="bottom_sand" width="36" height="14">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMAoIA3Ug1iCSRsbY5LCpIwWD9KuOYrwYAMbHD+4=
+  </data>
+ </layer>
+</map>

@@ -60,7 +60,7 @@ class Homepage extends FlameGame with KeyboardEvents {
         " " +
         camera.viewport.effectiveSize.y.toString());
 
-    final tiledMap = await TiledComponent.load('beach.tmx', Vector2.all(16));
+    final tiledMap = await TiledComponent.load('beach4.tmx', Vector2.all(64));
 
     add(tiledMap);
     currentStateOfMario = MarioState.idleRight;
@@ -72,7 +72,7 @@ class Homepage extends FlameGame with KeyboardEvents {
     marioEndPosX = startAndEnd.objects[1].x;
     marioEndPosY = startAndEnd.objects[1].y;
 
-    camera.worldBounds = Rect.fromLTWH(0, 0, 3040, 1072);
+    camera.worldBounds = Rect.fromLTWH(0, 0, 2304, 896);
     // camera.snapTo(Vector2(marioStartPosX / 2, marioStartPosY / 2));
     print(marioStartPosX.toString() + " ## " + marioStartPosY.toString());
 
@@ -169,7 +169,7 @@ class Homepage extends FlameGame with KeyboardEvents {
 
     if (isRight) {
       marioAnimationGroupComponent.x =
-          marioAnimationGroupComponent.x + 100 * dt;
+          marioAnimationGroupComponent.x + 200 * dt;
       currentStateOfMario = MarioState.runningRight;
       marioAnimationGroupComponent.current = MarioState.runningRight;
     } else {
@@ -178,15 +178,17 @@ class Homepage extends FlameGame with KeyboardEvents {
 
     if (isLeft) {
       marioAnimationGroupComponent.x =
-          marioAnimationGroupComponent.x - 100 * dt;
+          marioAnimationGroupComponent.x - 200 * dt;
       currentStateOfMario = MarioState.runningLeft;
       marioAnimationGroupComponent.current = MarioState.runningLeft;
     } else {
       isLeft = false;
     }
-    camera.translateBy(Vector2(10, 0));
 
     camera.followVector2(Vector2(
         marioAnimationGroupComponent.x, marioAnimationGroupComponent.y));
+
+    // camera.setRelativeOffset(Anchor.center);
+    // camera.translateBy(Vector2(1, 0));
   }
 }
